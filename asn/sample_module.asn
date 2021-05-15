@@ -1,0 +1,15 @@
+Module DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+OUTER ::= SEQUENCE {
+    outerId INTEGER,
+    opaque OCTET STRING,
+    nested NESTED
+}
+
+NESTED ::= SEQUENCE {
+    nestedId INTEGER,
+    value1 INTEGER,
+    value2 BOOLEAN
+}
+
+END

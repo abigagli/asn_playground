@@ -1,0 +1,72 @@
+{
+    "version": 2,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "DEBUG",
+            "binaryDir": "${sourceDir}/BUILD_${presetName}",
+            "generator": "Unix Makefiles",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_INSTALL_PREFIX": "/tmp/ASNEXP_INSTALL_${presetName}"
+            }
+        },
+        {
+            "name": "RELEASE",
+            "binaryDir": "${sourceDir}/BUILD_${presetName}",
+            "generator": "Unix Makefiles",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_INSTALL_PREFIX": "/tmp/ASNEXP_INSTALL_${presetName}"
+            }
+        },
+        {
+            "name": "CLANG_DEBUG",
+            "inherits": [
+                "DEBUG"
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_C_COMPILER": "clang"
+            }
+        },
+        {
+            "name": "GCC_DEBUG",
+            "inherits": [
+                "DEBUG"
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_C_COMPILER": "gcc"
+            }
+        },
+        {
+            "name": "CLANG_RELEASE",
+            "inherits": [
+                "RELEASE"
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_C_COMPILER": "clang"
+            }
+        },
+        {
+            "name": "GCC_RELEASE",
+            "inherits": [
+                "RELEASE"
+            ],
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_C_COMPILER": "gcc"
+            }
+        }
+    ]
+}
